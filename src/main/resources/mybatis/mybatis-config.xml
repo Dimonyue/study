@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+<!--    <properties resource="mybatis/application.properties"/>-->
+
+    <environments default="mysql_development">
+        <environment id="mysql_development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="com.mysql.hikari.HikariDataSourceFactory">
+                <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="jdbcUrl" value="jdbc:mysql://192.168.101.54:33306/heraclitus?ssl=false&amp;serverTimezone=GMT%2B8"/>
+                <property name="username" value="root"/>
+                <property name="password" value="123456"/>
+                <property name="connectionTestQuery" value="select 1"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="mybatis/alarm.xml"/>
+    </mappers>
+</configuration>
